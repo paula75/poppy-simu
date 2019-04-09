@@ -17,9 +17,9 @@ XL320.HornTopDiameter = 18;
 XL320.HornBottomDiameter = 20;
 
 // Materials
-XL320.BodyMaterial = new THREE.MeshLambertMaterial({ color: 0xAAAAAA });
+XL320.BodyMaterial = new THREE.MeshLambertMaterial({ color: 0x000000 });
 XL320.HornTopMaterial = new THREE.MeshLambertMaterial({ color: 0x222222});
-XL320.HornBottomMaterial = new THREE.MeshLambertMaterial({ color: 0xAAAAAA });
+XL320.HornBottomMaterial = new THREE.MeshLambertMaterial({ color: 0x000000 });
 
 //
 XL320.Object3D = function() {

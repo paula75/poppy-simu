@@ -14,7 +14,7 @@ ERGOJR.USideToHornLength = OLLO.Spacing / 2 + OLLO.LayerThickness;
 ERGOJR.ToolDist = OLLO.Spacing / 2 + 2 * OLLO.LayerThickness;
 
 //materials
-ERGOJR.printedPartsColor = 0x1975FF;
+ERGOJR.printedPartsColor = 0XE8CB34;
 ERGOJR.PrintedPartsMaterial = new THREE.MeshLambertMaterial({
   color: ERGOJR.printedPartsColor
 });
@@ -109,15 +109,16 @@ ERGOJR.Segment4 = function() {
 ERGOJR.Segment4.prototype = Object.create(THREE.Object3D.prototype);
 ERGOJR.Segment4.prototype.constructor = ERGOJR.Segment4;
 
-// Segment 5 - M5 + SideToSide
+// Segment 5 - M5 + LampHead
 ERGOJR.Segment5 = function() {
   THREE.Object3D.call(this);
 
   this.xl320 = new XL320.Object3DTwoHorns();
   this.add(this.xl320);
 
-  this.part = new ERGOJR.SideToSide();
+  this.part = new THREE.Mesh( STLLibrary.geometry['lamp_head'], ERGOJR.PrintedPartsMaterial);
   this.part.rotation.x = Math.PI;
+  this.part.rotation.y = Math.PI / 2;
   this.part.position.y = - 4 * OLLO.Spacing;
   this.add(this.part);
 };
@@ -173,7 +174,6 @@ ERGOJR.Robot = function() {
   this.S0.position.y = XL320.MotorHeight / 2 + OLLO.LayerThickness;
 
   // builiding the robot
-  this.S5.add(this.S6);
   this.S4.add(this.S5);
   this.S3.add(this.S4);
   this.S2.add(this.S3);
